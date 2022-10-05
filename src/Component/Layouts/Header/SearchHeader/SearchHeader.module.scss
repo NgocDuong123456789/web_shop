@@ -1,0 +1,80 @@
+@use '../../../abstracts' as * ;
+$color:#666;
+
+
+@mixin WidthAndHeight($width, $height,$borderRadius){
+    width: $width;
+    height: $height;
+    border-radius: $borderRadius;
+}
+@media (max-width: 768px){
+        .swapper{
+            display:none;
+        }
+}
+.swapper{
+    
+    @include WidthAndHeight(400px , 45px,100px);
+    position:relative;
+    input{
+        border: 1px solid #ccc;
+        @include WidthAndHeight(100% , 100%,100px);
+         padding : 0 40px ;
+        font-size:1.02rem;
+        color:$color;
+        caret-color: $color;
+        &:focus{
+            border:2px solid #000;
+        }
+    }
+    
+}
+.swapperSearch{
+    width :100%;
+    box-shadow: 0 -4px 32px rgba(0,0,0,.2);
+    background-color:#fff;
+    border-radius:10px;
+}
+.swapperItem{
+    width:400px;
+    padding :15px 0;
+    cursor: $cursor;
+    z-index: 999999999;
+    @include center(flex, center, none, none);
+    @media (max-width: 768px){
+       
+        border-bottom:1px solid black;
+    }
+
+    &:hover{
+        background-color:#ccc;
+        border-radius: 10px;
+    }
+    .searchIcon{
+        margin-left:20px;
+        font-size:1.2rem;
+        color:black;
+    }
+    p{
+        margin-left:10px;
+        color:#666;
+    }
+
+}
+.notSearch{
+    width:400px;
+    padding :15px 0;
+    cursor: $cursor;
+   
+    @include center(flex, center,none,none);
+    .notSearch-icon{
+        margin-left:20px;
+        font-size:1.2rem;
+        color:black;
+    }
+    p{
+        margin-left:10px;
+        color:#666;
+    }
+
+}

@@ -1,0 +1,97 @@
+@mixin Font($fontSize, $fontWeight, $marginBottom) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  margin-bottom: $marginBottom;
+}
+@mixin FontAndPadding($fontSize, $fontWeight, $paddingLeft,$cursor) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+  padding-left: $paddingLeft;
+  cursor: $cursor;
+
+}
+@mixin Input($Width, $Height, $cursor) {
+  width: $Width;
+  height: $Height;
+  cursor: $cursor;
+}
+@mixin displayItem($display, $item, $cursor, $padding) {
+  display: $display;
+  align-items: $item;
+  cursor: $cursor;
+  padding: $padding;
+}
+@mixin WidthAndPadding($width, $padding) {
+  width: $width;
+  padding-top: $padding;
+}
+.swapper {
+  width:100%;
+ 
+}
+.container1 {
+  @include WidthAndPadding(100%, 0px);
+  .product-title {
+    @include Font(1.2rem, 600, 10px);
+  }
+  .FilterProduct-item {
+    @include displayItem(flex, center, pointer, 5px 0);
+    label {
+      @include FontAndPadding(1rem, 400, 10px,pointer);
+    }
+    input {
+      @include Input(15px, 15px, pointer);
+    }
+  }
+}
+.container2 {
+  @include WidthAndPadding(100%, 20px);
+  .size-title {
+    @include Font(1.2rem, 600, 10px);
+  }
+  .FilterSize-item {
+    @include displayItem(flex, center, pointer, 5px 0);
+    label {
+      @include FontAndPadding(1rem, 400, 10px,pointer);
+    }
+    input {
+      @include Input(15px, 15px, pointer);
+    }
+  }
+}
+.container3 {
+  @include WidthAndPadding(100%, 20px);
+  .color-title {
+    @include Font(1.2rem, 600, 10px);
+  }
+  .FilterColor-item {
+    @include displayItem(flex, center, pointer, 5px 0);
+    label {
+      @include FontAndPadding(1rem, 400, 10px,pointer);
+    }
+    input {
+      @include Input(15px, 15px, pointer);
+    }
+  }
+}
+
+.btn-filter {
+  padding: 10px 20px;
+  background-color: black;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.05rem;
+  margin-top: 30px;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+.filter-icon{
+  display:none;
+}
+@media (max-width: 767px){
+   .swapper {
+display:none;
+  }
+ }

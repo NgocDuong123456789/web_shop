@@ -1,0 +1,21 @@
+@use '../abstracts' as *;
+// @mixin center($position, $top, $left,$right){
+//     position:$position;
+//     top:$top;
+//     left:$left;
+//     right:$right;
+// }
+.iconsearch{
+    @include WidthAndHeight(25px ,25px);
+    @include Position(absolute,50%,10px,none,none);
+   
+    transform:translateY(-50%);
+    color:#666;
+}
+.IconClose{
+    @include WidthAndHeight(20px ,20px);
+    @include Position(absolute,50%,none, 10px, none);
+    transform:translateY(-50%);
+   @include color (none,#333);
+    cursor: $cursor;
+}

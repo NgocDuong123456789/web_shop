@@ -1,0 +1,47 @@
+@use '../../../../abstracts' as * ;
+@mixin WidthAndHeight( $height ,$borderRadius) {
+    height: $height;
+    border-radius: $borderRadius;
+}
+
+.swapper{
+    
+   overflow: hidden;
+
+   @media (max-width: 768px){
+    @include layout(100%,grid , 1fr ,25px);
+   }
+   
+@include layout(100%,grid ,1fr 1fr ,25px);
+   margin-top:40px;
+   border-radius:10px;
+   @media (max-width: 768px){
+    margin-top:0;
+   }
+
+}
+.img{
+    cursor: $cursor;
+    height:430px;
+    @include WidthAndHeight(430px , 10px);
+    overflow: hidden;
+    @media (max-width: 768px){
+        width:100%;
+
+    }
+    img{
+        @media (max-width: 768px){
+            width:100%;
+            object-fit: cover;
+        }
+        @include WidthAndHeight(100% , 10px);
+        object-fit: cover;
+        transition: all 0.25s linear;
+        height:100%;
+        &:hover{
+            transform:scale(1.2);
+            border-radius:10px;
+        }
+       
+    }
+}

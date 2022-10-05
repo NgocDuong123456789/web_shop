@@ -1,0 +1,17 @@
+.swapper{
+    width: calc( 100% - 100px );
+    @media (max-width: 768px){
+        width:100% ;
+        padding :80px 10px 0 10px;
+        overflow-y: inherit
+    }
+    padding :100px 25px 0 18px;
+     overflow-y: scroll;
+     &::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background-color: #ccc;
+    }
+     &::-webkit-scrollbar {
+        width: 7px;
+    }
+}

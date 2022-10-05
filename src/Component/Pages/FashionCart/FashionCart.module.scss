@@ -1,0 +1,170 @@
+@use "../../abstracts" as *;
+
+.container {
+    display: flex;
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        display: block;
+    }
+    width: 100%;
+    @media (max-width: 768px) {
+        display: block;
+        padding: 100px 0 0 0;
+    }
+    padding: 100px 50px 50px 50px;
+}
+.swapper1 {
+    @include WidthAndHeight(40%, 250px);
+    @media (max-width: 768px) {
+        @include WidthAndHeight(100%, 250px);
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 100%;
+    }
+    box-shadow: 0 8px 24px hsl(210deg 8% 62% / 20%);
+    border-radius: 5px;
+    padding: 20px;
+    margin-right: 20px;
+
+    .title {
+        color: rgb(72, 72, 72);
+        font-size: 1.1rem;
+        @media (max-width: 768px) {
+            font-size: 1rem;
+        }
+    }
+    .money {
+        width: 100%;
+        @include center(flex, center, none, space-between);
+        padding: 10px 0;
+        p:nth-child(1) {
+            color: rgb(72, 72, 72);
+            font-size: 1.1rem;
+        }
+
+        h3 {
+            color: back;
+            @include Font(1.8rem, 600);
+        }
+        @media (max-width: 768px) {
+            p {
+                font-size: 1rem;
+            }
+            h3 {
+                @include Font(1.4rem, 600);
+            }
+        }
+    }
+    .cart-buy {
+        @include WidthAndHeight(100%, 45px);
+        display: block;
+        @media (max-width: 768px) {
+            font-size: 1.1rem;
+        }
+        border: 1px solid rgb(208, 1, 27);
+        border-radius: 5px;
+        @include color(rgb(251, 235, 237), rgb(208, 1, 27));
+        font-size: 1.2rem;
+        cursor: $cursor;
+        margin: 20px 0;
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+.swapper2 {
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 100%;
+        margin-top: 20px;
+    }
+    width: calc(100% - 40%);
+    flex: 1;
+    @media (max-width: 768px) {
+        width: 100%;
+        padding-top: 20px;
+    }
+}
+.swapper {
+    width: 100%;
+    @include center(flex, center, none, space-between);
+    margin-bottom: 30px;
+    @media (max-width: 768px) {
+        margin-bottom: 20px;
+        padding: 0 20px;
+    }
+    .img-title {
+        @include center(flex, center, none, none);
+        .img {
+            @include WidthAndHeight(130px, 150px);
+            @media (max-width: 768px) {
+                @include WidthAndHeight(80px, 80px);
+            }
+            img {
+                @media (max-width: 768px) {
+                    @include WidthAndHeight(100%, 100%);
+                    object-fit: cover;
+                }
+                @include WidthAndHeight(100%, 100%);
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
+        p {
+            margin-left: 20px;
+            @media (max-width: 768px) {
+                margin-left: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    }
+    .context {
+        p:nth-child(1) {
+            font-size: 1.3rem !important;
+            font-weight: 600;
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+        @include center(flex, center, none, space-between);
+        p:nth-child(2) {
+            margin: 0 30px;
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            p:nth-child(2) {
+                display: none;
+            }
+        }
+
+        p:nth-child(3) {
+            @include Font(1.3rem, 500);
+            color: #666;
+            &:hover {
+                color: red;
+                cursor: $cursor;
+            }
+            @media (max-width: 768px) {
+                font-size: 1.1rem;
+            }
+        }
+        .amount {
+            padding: 20px 0;
+            @include center(flex, center, none, none);
+            button {
+                text-align: center;
+                @include WidthAndHeight(50px, 30px);
+                cursor: $cursor;
+                border: 1px solid #ccc;
+                font-size: 1.5rem;
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+            p {
+                border: 1px solid #ccc;
+                @include center(flex, center, center, center);
+                @include WidthAndHeight(70px, 30px);
+            }
+        }
+    }
+}

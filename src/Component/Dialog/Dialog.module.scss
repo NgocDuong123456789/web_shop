@@ -1,0 +1,42 @@
+@use '../abstracts' as *;
+
+.swapper{
+    inset:0;
+    position:fixed;
+    background-color:rgb(0,0,0,0.5);
+    @include center(flex, center, none, center);
+    @include color(rgb(0,0,0,0.5),none);
+    z-index:99;
+    transition: all 0.25s linear;
+    .container{
+        padding:40px 40px;
+        border-radius: 10px;
+        @include color(#fff,none);
+        z-index:999;
+        p{
+            @include Font(1.2rem, 600)
+        }
+        .btn{
+            @include center(flex, center, none, center);
+           
+            button:nth-child(1),button:nth-child(2){
+                @include WidthAndHeight(60px , 60px);
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top:20px;
+                
+                @include Font(1.1rem, none);
+                &:hover{
+                    opacity: 0.8;
+                }
+            }
+            button:nth-child(1){
+                @include color(red, #fff);
+                margin-right:10px;
+            }
+            button:nth-child(2){
+                @include color(green, #fff);
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@use  '../abstracts' as *;
+
+
+.swapper{
+    border-radius: 50%;
+    @include WidthAndHeight(60px,60px);
+    @include color(black, red);
+    @include Font(1.2rem ,none);
+    @include center(flex, center, center, center);
+    position:fixed;
+    right:20px;
+    cursor: pointer;
+    top:650px;
+    @media (max-width: 768px){
+        top:750px;
+    }
+    transition: all 0.25s linear;
+    &:hover{
+        @include color(#333,none)
+    }
+    @media (max-width: 768px){
+        display:none;
+    }
+}

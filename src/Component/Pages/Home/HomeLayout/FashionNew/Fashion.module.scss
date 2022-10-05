@@ -1,0 +1,161 @@
+
+
+@use '../../../../abstracts' as *;
+
+.swapper {
+    margin-top: 40px;
+    width: 100%;
+    @include color(rgb(170, 190, 198), none);
+    overflow: hidden;
+    .title {
+        width: 100%;
+        text-align: center;
+        margin-top: 50px;
+        @media (max-width: 768px) {
+            font-size: 1.3rem;
+            margin-top:30px;
+        }
+    }
+}
+.fashion-list {
+    width: 90%;
+    display: flex;
+    overflow-x: scroll;
+    margin: 60px auto;
+    padding-bottom: 30px;
+    @media (max-width: 768px) {
+        padding-bottom: 20px;
+        
+    }
+    &::-webkit-scrollbar {
+        @media (max-width: 768px) {
+            height:0;
+        }
+       height:15px;
+    }
+    &::-webkit-scrollbar-thumb {
+         border-radius: 100px;
+        @include color(#ccc, none);
+        @media (max-width: 768px) {
+             border-radius: 10px;
+        }
+        
+    }
+   
+}
+.fashion-item {
+    cursor: pointer;
+    padding: 0 10px;
+   
+    .fashion-img {
+        @include WidthAndHeight(250px, 300px);
+        @media (max-width: 768px){
+            @include WidthAndHeight(150px, 200px);
+        }
+        position: relative;
+
+        .overflow {
+            position: absolute;
+            content: "";
+            @include color(rgba(0, 0, 0, 0.5), black);
+            @include WidthAndHeight(100%, 100%);
+            inset: 0;
+            transition: all 0.2s linear;
+            border-radius: 5px;
+            opacity: 0;
+            .overflow-text {
+                
+                @include Position(absolute,50%,50%, none, none);
+                transform: translate(-50%, -50%);
+                @include WidthAndHeight(150px, 40px);
+                @include color(#fff, none);
+                @include Font(1.1rem, 600);
+                @include center(flex, center, center, center);
+                border-radius: 20px;
+                transition: all 0.25s linear;
+            }
+        }
+        &:hover .overflow {
+            opacity: 1;
+        }
+        &:hover .overflow-text {
+            top: 40%;
+            transform: translateX(-50%);
+        }
+        img {
+            @include WidthAndHeight(100%, 100%);
+            object-fit: cover;
+            border-radius: 5px;
+        }
+    }
+    .fashion-name {
+        width: 100%;
+        text-align: center;
+        font-size: 0.9rem;
+        margin: 10px 0;
+        color:black;
+        @media (max-width: 768px) {
+            font-size:0.8rem;
+        }
+    }
+    .price {
+        width: 100%;
+        @include center(flex, center, center, center);
+        margin: 10px auto;
+        .price-old {
+            margin-left: 10px;
+            text-decoration-line: line-through;
+            color: #666;
+            @media  (max-width: 768px){
+               font-size:0.8rem
+            }
+        }
+        .price-new {
+            @include Font(1.2rem !important, 600);
+            color: red;
+            @media  (max-width: 768px){
+                @include Font(0.9rem !important, 600);
+            }
+        }
+    }
+    .add {
+        cursor: pointer;
+        @include WidthAndHeight(60%, 40px);
+        @media (max-width: 768px){
+            @include WidthAndHeight(60%, 30px);
+        }
+        border-radius: 10px;
+        @include center(flex, center, center, center);
+        background-color: #000;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        button {
+            cursor: pointer;
+            @include Font(1rem, 600);
+            @include color(#000, #fff);
+            transition: 0.3s linear;
+            @media (max-width: 768px) {
+                @include Font(0.8rem, 600);
+            }
+        }
+        .img-cart {
+            color: #fff;
+            @include Font(1.5rem, 700);
+            position: absolute;
+            transform: translateX(-330%);
+            margin-top: 2px;
+            @include WidthAndHeight(30px, 30px);
+            transition: 0.3s linear;
+            img {
+                @include WidthAndHeight(100%, 100%);
+            }
+        }
+        &:hover .img-cart {
+            transform: translateX(0%);
+        }
+        &:hover button {
+            transform: translateX(300%);
+        }
+    }
+}

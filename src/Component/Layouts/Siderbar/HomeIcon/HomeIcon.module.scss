@@ -1,0 +1,44 @@
+// @mixin WidthAndHeight($width, $height) {
+//     width: $width;
+//     height: $height;
+// }
+@use '../../../abstracts' as *;
+
+.swappers{
+    @include WidthAndHeight(100px, 100vh);
+    @media (max-width: 768px){
+        display:none;
+    }
+  
+    
+}
+.swapper {
+   @include Position(fixed,none,10px ,none,none);
+    //  position: fixed;
+    transition:all 0.1s linear;
+   
+    // left:10px;
+    z-index: 10;
+   
+}
+
+.Icon-plug {
+    margin: 0px auto;
+    cursor:$cursor;;
+    @include WidthAndHeight(40px, 40px);
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+    @include center(flex, center, none, center);
+    // background-color: rgb(59, 138, 234);
+     font-size: 0.9rem;
+    // color: #fff;
+    @include color( rgb(59, 138, 234),#fff);
+    border-radius: 50%;
+    .icon {
+        transition: all 0.25s linear;
+    }
+    &:hover .icon {
+        transform: scale(1.5);
+    }
+}

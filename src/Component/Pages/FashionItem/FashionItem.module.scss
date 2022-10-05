@@ -1,0 +1,243 @@
+@use "../../abstracts" as *;
+
+@mixin fontandColor($fontSize, $color) {
+  font-size: $fontSize;
+  color: $color;
+}
+.swapper {
+  width: 100%;
+  background-color: rgb(245, 245, 245);
+  padding: 100px 0;
+  @media (max-width: 768px) {
+    padding: 70px 0;
+  }
+  .container {
+    height: 100%;
+    max-width: 1200px;
+    background-color: #fff;
+    display: flex;
+    @media (max-width: 768px) {
+      display: block;
+    }
+    margin: 0 auto;
+    padding: 20px 0;
+    .container-img {
+      width: 40%;
+      padding: 20px;
+      @media (max-width: 768px) {
+        width: 100%;
+        .img {
+          @include WidthAndHeight(100%, 300px);
+          img {
+            @include WidthAndHeight(100%, 300px);
+          }
+        }
+      }
+    }
+    .img {
+      overflow: hidden;
+      cursor: $cursor;
+      @include WidthAndHeight(100%, 600px);
+      margin-bottom: 20px;
+      border-radius: 10px;
+      img {
+        &:hover {
+          transform: scale(1.2);
+         
+        }
+        transition: all 0.3s linear;
+        overflow: hidden;
+        @include WidthAndHeight(100%, 600px);
+        object-fit: cover;
+        border-radius:10px;
+      }
+    }
+    .img-list {
+      cursor: pointer;
+      grid-template-columns: 1fr 1fr;
+      @include center(grid, center, none, none);
+      gap: 10px;
+      img {
+        @include WidthAndHeight(100%, 150px);
+        object-fit: cover;
+        border: 2px solid #ccc;
+      }
+    }
+
+    .context {
+      flex: 1;
+      padding: 20px;
+      .context-title {
+        @include center(flex, center, none, none);
+        h3 {
+          @include Font(2rem, 700);
+          color: rgb(51, 51, 51);
+          @media (max-width: 768px) {
+            @include Font(1.5rem, 700);
+          }
+        }
+      }
+      .context-love {
+        padding: 3px 5px;
+        border-radius: 3px;
+        @include color(rgb(238, 77, 45), #fff);
+        cursor: $cursor;
+        @media (max-width: 768px) {
+          font-size: 0.8rem;
+          padding: 4px 6px;
+        }
+      }
+      h3 {
+        @include Font(1.6rem, 500);
+        margin-left: 20px;
+      }
+      .context-price {
+        background-color: rgb(250, 250, 250);
+        border-radius: 10px;
+        padding: 20px 20px;
+        margin: 20px 0;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .price {
+          @include center(flex, center, none, none);
+        }
+        .price-news {
+          @include center(flex, center, none, none);
+
+          p {
+            color: rgb(238, 77, 45);
+            margin-right: 10px;
+            @media (max-width: 768px) {
+              margin: 10px 10px 10px 0;
+            }
+          }
+        }
+        .price-new {
+          display: flex;
+          p {
+            @include fontandColor(1.8rem, rgb(238, 77, 45));
+            @media (max-width: 768px) {
+              @include fontandColor(1.4rem, rgb(238, 77, 45));
+            }
+          }
+          sup {
+            @include fontandColor(1.3rem, rgb(238, 77, 45));
+            margin-right: 5px;
+            text-decoration-line: underline;
+            @media (max-width: 768px) {
+              @include fontandColor(1.1rem, rgb(238, 77, 45));
+            }
+          }
+        }
+        .price-old {
+          display: flex;
+          margin: 0 10px 0 20px;
+          p {
+            @include fontandColor(1.8rem, rgb(238, 77, 45));
+            text-decoration-line: line-through;
+            @media (max-width: 768px) {
+              @include fontandColor(1.4rem, rgb(238, 77, 45));
+            }
+          }
+          sup {
+            @include fontandColor(1.3rem, rgb(238, 77, 45));
+            margin-right: 5px;
+            text-decoration-line: underline;
+            @media (max-width: 768px) {
+              @include fontandColor(1.1rem, rgb(238, 77, 45));
+            }
+          }
+        }
+        .new-price {
+          padding: 3px 4px;
+          border-radius: 3px;
+          @include color(rgb(238, 77, 45), #fff);
+          cursor: pointer;
+          font-size: 0.8rem;
+        }
+      }
+    }
+    .color-list {
+      padding: 10px 0;
+      display: flex;
+      .color {
+        @include WidthAndHeight(30px, 30px);
+
+        border-radius: 50%;
+        margin: 0 5px;
+        cursor: pointer;
+
+        @include center(flex, center, center, center);
+        p {
+          @include WidthAndHeight(80%, 80%);
+          border-radius: 50%;
+        }
+      }
+    }
+    .amount {
+      padding: 20px 0;
+      @include center(flex, center, none, none);
+      button {
+        text-align: center;
+        @include WidthAndHeight(50px, 30px);
+        cursor: pointer;
+        border: 1px solid #ccc;
+        font-size: 1.5rem;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      p {
+        border: 1px solid #ccc;
+        @include center(flex, center, center, center);
+        @include WidthAndHeight(70px, 30px);
+      }
+    }
+    .cart {
+      @include center(flex, center, none, none);
+      cursor: pointer;
+      padding: 20px 0;
+    }
+    .cart-list {
+      border-radius: 5px;
+      border: 2px solid rgb(238, 77, 45);
+
+      @include center(flex, center, center, center);
+      @include WidthAndHeight(300px, 50px);
+      @include color(rgb(255, 238, 232), rgb(238, 77, 45));
+      p {
+        margin-left: 15px;
+      }
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+    .cart-buy {
+      margin-left: 20px;
+      @include WidthAndHeight(100px, 50px);
+      cursor: pointer;
+      @include color(rgb(238, 77, 45), #fff);
+      border-radius: 5px;
+      font-size: 1.05rem;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .size-list {
+      @include center(flex, center, none, none);
+      padding: 20px 0;
+      .size {
+        border: 1px solid #ccc;
+        cursor: pointer;
+        margin: 0 5px;
+        @include fontandColor(1.2rem, #666);
+        @include center(flex, center, center, center);
+        @include WidthAndHeight(30px, 30px);
+        border-radius: 50%;
+      }
+    }
+  }
+}

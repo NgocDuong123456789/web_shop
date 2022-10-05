@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+.swapper{
+    
+    @include WidthAndHeight(100%,50px);
+    @include center(flex, center,center, center);
+    border:1px solid #ccc;
+    margin:0 auto;
+   @media (max-width: 768px){
+    @include WidthAndHeight(100%,50px);
+    margin:20px auto;
+    
+    
+    
+   }
+    margin-bottom:50px;
+    p{
+        color:black;
+        @include Font(1.15rem,600);
+        @media (max-width: 768px){
+            font-size:1rem;
+        }
+    }
+}

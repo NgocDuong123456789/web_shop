@@ -1,0 +1,37 @@
+@mixin WidthAndHeight($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+
+@mixin center($display, $align,$text,$justify){
+    display:$display;
+    align-items: $align;
+    text-align: $text;
+    justify-content: $justify;
+}
+
+@mixin color($background, $color){
+    background-color: $background;
+    color:$color
+}
+
+@mixin Font($fontSize, $fontWeight){
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+}
+
+@mixin Position($position, $top, $left,$right,$bottom){
+    position:$position;
+    top:$top;
+    left:$left;
+    right:$right;
+    bottom:$bottom
+}
+
+@mixin layout($width,$display,$grid-template-columns, $gap){
+    width: $width;
+    display:$display;
+    gap:$gap;
+    grid-template-columns: $grid-template-columns;
+}
